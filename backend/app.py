@@ -17,7 +17,7 @@ app = FastAPI()
 # CORS middleware to allow requests from the frontend
 # More secure configuration for production
 origins = [
-    "https://hpt-holidaytaxidispatchsystem.netlify.app",  # Deployed frontend
+    "https://holidaytaxidispatchsystem.netlify.app",  # Deployed frontend
     "http://localhost:5173",  # Default Vite dev server port
     "http://127.0.0.1:5173",
 ]
