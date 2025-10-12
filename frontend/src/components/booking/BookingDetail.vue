@@ -42,7 +42,7 @@
             <label>Driver Phone:</label>
             <input v-model="driverForm.phoneNumber" placeholder="e.g., +441234567890" />
           </div>
-          
+
           <div class="form-group full-width">
             <label>Available Contact Methods:</label>
             <div class="checkbox-group">
@@ -102,8 +102,8 @@ const props = defineProps<{
 }>();
 
 // --- State Management ---
-const driverForm = ref({ name: 'Driver 1', phoneNumber: '+441234567891', licenseNumber: '123456' });
-const vehicleForm = ref<VehicleForm>({ brand: 'Toyota', model: 'Prius', color: 'blue', description: "Branded with 'Acme Transfers'", registration: 'AB-123-XYZ1' });
+const driverForm = ref({ name: '', phoneNumber: '', licenseNumber: '' });
+const vehicleForm = ref<VehicleForm>({ brand: '', model: '', color: '', description: "", registration: '' });
 
 const contactOptions = ref([
   { name: 'VOICE', checked: true },
@@ -182,7 +182,7 @@ const updateDriver = async () => {
       }
       throw new Error(data.message?.message || data.detail || 'Update failed');
     }
-    
+
     let successMsg = 'Driver & vehicle updated successfully.';
     if (linkWasGenerated) {
       generateLocationLink(); // Auto-regenerate link
@@ -190,11 +190,11 @@ const updateDriver = async () => {
     }
     driverUpdateMessage.value = successMsg;
 
-  } catch (e: any) { 
-    driverUpdateError.value = e.message; 
+  } catch (e: any) {
+    driverUpdateError.value = e.message;
   }
-  finally { 
-    updatingDriver.value = false; 
+  finally {
+    updatingDriver.value = false;
   }
 };
 
